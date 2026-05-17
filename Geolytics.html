@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geolytics — Inicio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&family=General+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=cabinet-grotesk@500,700,800&display=swap" rel="stylesheet">
+
+<script>
+  const TWEAKS = /*EDITMODE-BEGIN*/{
+    "theme": "forest",
+    "density": "comfortable",
+    "language": "es",
+    "showGrid": true
+  }/*EDITMODE-END*/;
+  window.__INITIAL_SCREEN = "home";
+</script>
+
+<link rel="stylesheet" href="styles.css">
+<style id="__om-edit-overrides"></style>
+</head>
+<body data-screen-label="Inicio">
+
+<div class="app" id="app"></div>
+
+<!-- Tweaks panel -->
+<div class="tweaks" id="tweaks">
+  <div class="tweaks-head">
+    <strong>Tweaks</strong>
+    <button class="icon-btn" style="width:26px;height:26px;border:none;background:transparent" onclick="closeTweaks()" aria-label="close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="tweaks-body">
+    <div class="tw-group">
+      <label>Theme</label>
+      <div class="tw-themes" id="tw-themes"></div>
+    </div>
+    <div class="tw-group">
+      <div class="tw-toggle-row">
+        <label style="color:var(--ink); text-transform:none; letter-spacing:0; font-family:var(--font-sans); font-size:13px; font-weight:500;">Background grid</label>
+        <div class="tw-toggle" id="tw-grid" onclick="toggleGrid()"></div>
+      </div>
+    </div>
+    <div class="tw-group">
+      <div class="tw-toggle-row">
+        <label style="color:var(--ink); text-transform:none; letter-spacing:0; font-family:var(--font-sans); font-size:13px; font-weight:500;">Compact density</label>
+        <div class="tw-toggle" id="tw-density" onclick="toggleDensity()"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="screens-extra.js?v=4"></script>
+<script src="app.js?v=4"></script>
+</body>
+</html>
