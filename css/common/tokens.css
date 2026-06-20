@@ -1,0 +1,65 @@
+/* ============================================================
+   shared/tokens.css
+   ============================================================ */
+  :root {
+    /* Forest (default) — deep analytical green */
+    --bg: #F4F1EA;              /* warm cream page */
+    --surface: #FBF9F4;         /* off-white cards */
+    --surface-2: #EFEAE0;       /* sunken panels */
+    --ink: #0B1F17;             /* near-black green text */
+    --ink-2: #2A3A32;
+    --muted: #6B7A72;
+    --muted-2: #8F9A92;
+    --line: #DDD6C7;
+    --line-strong: #B8B0A0;
+
+    --brand: #0F3D2E;           /* deep forest */
+    --brand-2: #184E3C;
+    --brand-ink: #F4F1EA;
+    --accent: #C4703B;          /* terracotta */
+    --accent-2: #D98E5A;
+    --warn: #B8572E;
+    --pos: #2F6B4A;
+    --neg: #A83838;
+
+    --chart-1: #0F3D2E;
+    --chart-2: #C4703B;
+    --chart-3: #8B6F47;
+    --chart-4: #4A6B5F;
+
+    --r-sm: 4px;
+    --r-md: 8px;
+    --r-lg: 14px;
+    --r-xl: 22px;
+
+    --shadow-sm: 0 1px 0 rgba(11,31,23,0.04), 0 1px 2px rgba(11,31,23,0.04);
+    --shadow-md: 0 1px 0 rgba(11,31,23,0.04), 0 6px 18px -8px rgba(11,31,23,0.16);
+    --shadow-lg: 0 24px 60px -20px rgba(11,31,23,0.25), 0 2px 8px rgba(11,31,23,0.06);
+
+    --font-sans: 'General Sans', 'Inter', system-ui, sans-serif;
+    --font-display: 'Cabinet Grotesk', 'General Sans', system-ui, sans-serif;
+    --font-serif: 'Instrument Serif', Georgia, serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  }
+
+  /* Midnight variant (versión nocturna del tema forest) */
+  [data-theme="midnight"] {
+    --bg: #171B22;
+    --surface: #1F252E;
+    --surface-2: #29313B;
+    --ink: #ECEFF2;
+    --ink-2: #C9CFD7;
+    --muted: #909BA6;
+    --muted-2: #6F7884;
+    --line: #303843;
+    --line-strong: #424B57;
+    /* Verde bosque (misma familia que el tema claro), no menta neón.
+       Texto crema sobre el verde (--brand-ink), igual que en claro → sin look fluo. */
+    --brand: #347C58;
+    --brand-2: #40915F;
+    --brand-ink: #F2EFE7;
+    --accent: #F2A35F;
+    --pos: #5FB387;
+    --neg: #F47373;
+    --chart-1: #5FB387; --chart-2: #F2A35F; --chart-3: #9AA7FF; --chart-4: #E8D074;
+  }

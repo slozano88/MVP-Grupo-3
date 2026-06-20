@@ -1,0 +1,174 @@
+/* ============================================================
+   shared/responsive.css
+   ============================================================ */
+  /* Result actions row */
+  .result-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  /* ===================== RESPONSIVE ===================== */
+
+  /* Hamburger button - hidden by default, visible on mobile */
+  .mobile-menu-btn {
+    display: none;
+    width: 36px; height: 36px; border-radius: 8px;
+    background: transparent; border: 1px solid var(--line);
+    color: var(--ink);
+    align-items: center; justify-content: center;
+    margin-right: 4px; flex-shrink: 0;
+  }
+  .mobile-menu-btn:hover { background: var(--surface); }
+
+  /* Sidebar backdrop - hidden by default */
+  .side-backdrop {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 99;
+    opacity: 0; pointer-events: none;
+    transition: opacity .25s ease;
+  }
+  .side-backdrop.show { opacity: 1; pointer-events: auto; }
+
+  /* === Tablet (≤1100px) === */
+  @media (max-width: 1100px) {
+    .config-layout { grid-template-columns: 1fr; }
+    .charts-grid { grid-template-columns: 1fr; }
+    .hero { grid-template-columns: 1fr; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .scenario-grid, .strip-list, .features { grid-template-columns: repeat(2, 1fr); }
+    .about-meth-grid, .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* === Mobile (≤768px) === */
+  @media (max-width: 768px) {
+    /* Layout: sidebar becomes off-canvas drawer */
+    .app { grid-template-columns: 1fr; }
+    .side {
+      position: fixed; top: 0; left: 0; bottom: 0;
+      width: 280px; max-width: 85vw;
+      z-index: 100;
+      transform: translateX(-100%);
+      transition: transform .25s ease;
+    }
+    .side.open {
+      transform: translateX(0);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+    .side-backdrop { display: block; }
+
+    /* Show hamburger */
+    .mobile-menu-btn { display: flex; }
+
+    /* Topbar tweaks */
+    .topbar { padding: 0 12px; gap: 8px; height: 52px; }
+    .crumbs { font-size: 12.5px; flex: 1; min-width: 0; overflow: hidden; }
+    .crumbs span:not(.slash), .crumbs .slash { display: none; }
+    .crumbs strong { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .top-actions { gap: 6px; }
+    .top-actions .search { display: none; }
+    .top-actions .btn-sm { padding: 8px 10px; font-size: 12px; }
+    .top-actions .btn-sm svg { width: 14px; height: 14px; }
+
+    .canvas { padding: 18px 16px 40px; }
+
+    /* All multi-column grids → single column */
+    .config-layout, .charts-grid, .detail-grid, .profile-layout,
+    .about-steps, .about-meth-grid, .about-team, .teach-feats,
+    .teach-plans, .compare-grid, .reg-grid, .reg-interests,
+    .stat-grid, .auth-stats, .scenario-grid, .strip-list, .features,
+    .kpi-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* Headings & hero */
+    .hero { padding: 28px 22px; }
+    .hero h1 { font-size: 32px !important; line-height: 1.1; }
+    .hero p { font-size: 14px; }
+    .page-head { gap: 12px; margin-bottom: 18px; }
+    .page-title { font-size: 26px; }
+    .page-sub { font-size: 13.5px; }
+
+    /* Auth pages: hide brand panel */
+    .auth-grid { grid-template-columns: 1fr; }
+    .auth-brand { display: none; }
+    .auth-panel { padding: 28px 20px; }
+    .auth-form { max-width: 100%; }
+    .auth-close { top: 14px; right: 14px; }
+    .auth-pitch, .about-h, .teach-h { font-size: 32px !important; }
+    .auth-stats { gap: 10px; }
+
+    /* About + Teachers hero */
+    .about-hero, .teach-hero { padding: 36px 22px; }
+    .teach-steps-grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* Onboarding */
+    .onb-card { padding: 28px 20px; }
+    .onb-title { font-size: 22px; }
+
+    /* History controls + filters */
+    .history-controls { flex-direction: column; align-items: stretch !important; gap: 10px; }
+    .history-controls .search { min-width: 0 !important; width: 100%; }
+    .hist-filters { flex-wrap: wrap; }
+
+    /* Cards & buttons: touch targets */
+    .nav-item, .btn { min-height: 40px; }
+    .btn { padding: 10px 14px; }
+
+    /* Profile tabs scroll horizontally */
+    .profile-tabs { overflow-x: auto; scrollbar-width: none; }
+    .profile-tabs::-webkit-scrollbar { display: none; }
+    .profile-tab { flex-shrink: 0; }
+
+    /* Tweaks panel: full width near bottom */
+    .tweaks { right: 12px !important; left: 12px !important; bottom: 12px !important; width: auto !important; max-width: none !important; }
+
+    /* Continue bar (escenarios CTA) → stack vertically on mobile */
+    .continue-bar {
+      flex-direction: column; align-items: stretch !important;
+      gap: 12px; padding: 14px;
+    }
+    .continue-bar .btn-primary { width: 100%; justify-content: center; }
+
+    /* Result actions: full-width stacked buttons */
+    .result-actions { width: 100%; }
+    .result-actions .btn { flex: 1; min-width: calc(50% - 4px); justify-content: center; }
+
+    /* Compare: stack the head + force charts to 1 col */
+    .compare-head { grid-template-columns: 1fr !important; gap: 14px; }
+    .compare-vs { font-size: 24px; padding: 4px 0; }
+    .charts-grid-2col { grid-template-columns: 1fr !important; }
+    .compare-table { min-width: 560px; }
+    .compare-table th, .compare-table td { padding: 10px 12px; font-size: 12.5px; }
+    .compare-table .bar-col { width: 140px; }
+
+    /* Profile: unstick the left side on mobile */
+    .profile-side, .detail-side, .preview { position: static !important; }
+
+    /* Compare picker rows wrap */
+    .compare-pickers { flex-direction: column; }
+
+    /* Sidebar adjustments when open */
+    .nav { padding: 12px 10px; }
+    .brand { padding: 18px 18px 14px; }
+  }
+
+  /* === Small phones (≤480px) === */
+  @media (max-width: 480px) {
+    .topbar { padding: 0 10px; }
+    .canvas { padding: 14px 12px 32px; }
+    .hero { padding: 22px 18px; }
+    .hero h1 { font-size: 26px !important; }
+    .page-title { font-size: 22px; }
+    .auth-pitch, .about-h, .teach-h { font-size: 26px !important; }
+
+    /* Hide "Nueva simulación" label, keep icon */
+    .top-actions .btn-primary { padding: 8px 10px; }
+    .top-actions .btn-primary { font-size: 0; }
+    .top-actions .btn-primary svg { font-size: 14px; }
+
+    /* Reg stepper compact */
+    .reg-stepper { gap: 4px; }
+    .reg-step-label { display: none; }
+
+    /* KPI cards */
+    .kpi { padding: 16px; }
+  }

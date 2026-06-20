@@ -16,11 +16,22 @@
     "language": "es",
     "showGrid": true
   }/*EDITMODE-END*/;
+
+  // Anti-parpadeo: aplica el tema y el color de fondo ANTES de cargar el CSS
+  // externo, para que el primer pixel ya sea del color correcto (no blanco).
+  (function(){
+    var BG = { forest:'#F4F1EA', midnight:'#0E1116' };
+    var __stored = null; try { __stored = localStorage.getItem('geolytics-theme'); } catch(e){}
+    var t = __stored || (typeof TWEAKS !== 'undefined' && TWEAKS.theme) || 'forest';
+    document.documentElement.setAttribute('data-theme', t);
+    document.documentElement.style.background = BG[t] || '#F4F1EA';
+  })();
   window.__INITIAL_SCREEN = "history";
 </script>
 
 <link rel="stylesheet" href="styles.css">
 <style id="__om-edit-overrides"></style>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='6' y='6' width='88' height='88' rx='22' fill='%23EFEAE0'/%3E%3Crect x='24' y='54' width='14' height='28' rx='2.5' fill='%233E7C5E'/%3E%3Crect x='43' y='42' width='14' height='40' rx='2.5' fill='%231E5C42'/%3E%3Crect x='62' y='26' width='14' height='56' rx='2.5' fill='%230F3D2E'/%3E%3Cpath d='M22 80 L74 42' stroke='%23C4703B' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M64 36 L80 34 L74 49 Z' fill='%23C4703B'/%3E%3C/svg%3E">
 </head>
 <body data-screen-label="Historial">
 
@@ -54,7 +65,30 @@
   </div>
 </div>
 
-<script src="screens-extra.js?v=4"></script>
-<script src="app.js?v=4"></script>
+<!-- Supabase: cliente CDN. El resto de la app quedó reestructurado por uso común/persona. -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+
+<!-- JS por responsable / pantalla. Se cargan antes del common porque definen los renderizadores. -->
+<script src="js/acceso/login.js?v=20"></script>
+<script src="js/acceso/onboarding.js?v=20"></script>
+<script src="js/acceso/loading.js?v=20"></script>
+
+<script src="js/simulaciones/escenarios.js?v=20"></script>
+<script src="js/simulaciones/resultados.js?v=20"></script>
+<script src="js/simulaciones/comparar.js?v=20"></script>
+
+<script src="js/geolytics/geolytics.js?v=20"></script>
+<script src="js/geolytics/detalle.js?v=20"></script>
+<script src="js/geolytics/historial.js?v=20"></script>
+<script src="js/geolytics/glosario.js?v=20"></script>
+<script src="js/geolytics/acerca.js?v=20"></script>
+
+<script src="js/administracion/perfil.js?v=20"></script>
+<script src="js/administracion/configuracion.js?v=20"></script>
+<script src="js/administracion/docentes.js?v=20"></script>
+<script src="js/administracion/aula-institucion.js?v=20"></script>
+
+<!-- Uso común: datos, Supabase, router, eventos, estado global y arranque. Va último. -->
+<script src="js/common/common.js?v=20"></script>
 </body>
 </html>

@@ -1,0 +1,49 @@
+/* ============================================================
+   shared/primitives.css
+   ============================================================ */
+  /* ===================== COMMON PRIMITIVES ===================== */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 16px; border-radius: 8px;
+    font-size: 13.5px; font-weight: 600;
+    border: 1px solid transparent;
+    transition: transform .06s ease, background .15s, color .15s, border-color .15s;
+    white-space: nowrap;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: var(--brand); color: var(--brand-ink); }
+  .btn-primary:hover { background: var(--brand-2); }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+  .btn-ghost:hover { background: var(--surface); border-color: var(--line-strong); }
+  .btn-accent { background: var(--accent); color: #fff; }
+  .btn-accent:hover { background: var(--accent-2); }
+  .btn-sm { padding: 7px 12px; font-size: 12.5px; }
+  .btn svg { width: 14px; height: 14px; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-sm);
+  }
+  .card-pad { padding: 22px; }
+
+  .eyebrow { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .h-display { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.025em; line-height: 1.02; }
+  .h-serif { font-family: var(--font-serif); font-style: italic; letter-spacing: -0.01em; }
+
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px; border-radius: 999px;
+    font-size: 11px; font-weight: 600;
+    background: var(--surface-2); color: var(--ink-2);
+    border: 1px solid var(--line);
+  }
+  .pill.pill-brand { background: var(--brand); color: var(--brand-ink); border-color: transparent; }
+  .pill.pill-accent { background: color-mix(in oklab, var(--accent) 18%, var(--surface)); color: var(--accent); border-color: color-mix(in oklab, var(--accent) 30%, transparent); }
+  .pill.pill-pos { background: color-mix(in oklab, var(--pos) 16%, var(--surface)); color: var(--pos); border-color: color-mix(in oklab, var(--pos) 30%, transparent); }
+  .pill.pill-neg { background: color-mix(in oklab, var(--neg) 14%, var(--surface)); color: var(--neg); border-color: color-mix(in oklab, var(--neg) 28%, transparent); }
+
+  .page-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 22px; gap: 24px; flex-wrap: wrap; }
+  .page-title { font-family: var(--font-display); font-size: 34px; font-weight: 800; letter-spacing: -0.025em; line-height: 1.05; }
+  .page-sub { font-size: 14.5px; color: var(--muted); margin-top: 6px; max-width: 560px; line-height: 1.5; }

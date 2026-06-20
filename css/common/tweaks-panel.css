@@ -1,0 +1,45 @@
+/* ============================================================
+   shared/tweaks-panel.css
+   ============================================================ */
+  /* ===================== TWEAKS PANEL ===================== */
+  .tweaks {
+    position: fixed; bottom: 20px; right: 20px;
+    width: 300px;
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    border-radius: 14px;
+    box-shadow: var(--shadow-lg);
+    z-index: 100;
+    display: none;
+    overflow: hidden;
+  }
+  .tweaks.on { display: block; animation: fadeUp .24s ease; }
+  .tweaks-head {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface-2);
+  }
+  .tweaks-head strong { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .tweaks-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 14px; }
+  .tw-group label { font-size: 11px; font-family: var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .tw-themes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 8px; }
+  .tw-swatch {
+    aspect-ratio: 1; border-radius: 10px; cursor: pointer;
+    position: relative; border: 2px solid transparent;
+    display: grid; place-items: end center;
+    padding: 6px;
+  }
+  .tw-swatch span { font-size: 9px; font-family: var(--font-mono); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+  .tw-swatch.on { border-color: var(--ink); }
+  .tw-swatch.on::after { content: ''; position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; border-radius: 50%; background: var(--ink); border: 2px solid var(--surface); }
+
+  .tw-toggle-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .tw-toggle {
+    width: 34px; height: 20px; border-radius: 999px;
+    background: var(--surface-2); border: 1px solid var(--line);
+    position: relative; cursor: pointer; flex-shrink: 0;
+  }
+  .tw-toggle::after { content: ''; position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; border-radius: 50%; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.15); transition: left .15s, background .15s; }
+  .tw-toggle.on { background: var(--brand); border-color: var(--brand); }
+  .tw-toggle.on::after { left: 16px; background: var(--brand-ink); }
