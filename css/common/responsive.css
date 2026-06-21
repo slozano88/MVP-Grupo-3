@@ -1,11 +1,5 @@
-/* ============================================================
-   shared/responsive.css
-   ============================================================ */
-  /* Result actions row */
+/* responsive.css
   .result-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-
-  /* ===================== RESPONSIVE ===================== */
-
   /* Hamburger button - hidden by default, visible on mobile */
   .mobile-menu-btn {
     display: none;
@@ -17,7 +11,7 @@
   }
   .mobile-menu-btn:hover { background: var(--surface); }
 
-  /* Sidebar backdrop - hidden by default */
+  /* Sidebar backdrop*/
   .side-backdrop {
     display: none;
     position: fixed; inset: 0;
@@ -121,7 +115,6 @@
     /* Tweaks panel: full width near bottom */
     .tweaks { right: 12px !important; left: 12px !important; bottom: 12px !important; width: auto !important; max-width: none !important; }
 
-    /* Continue bar (escenarios CTA) → stack vertically on mobile */
     .continue-bar {
       flex-direction: column; align-items: stretch !important;
       gap: 12px; padding: 14px;
@@ -160,7 +153,6 @@
     .page-title { font-size: 22px; }
     .auth-pitch, .about-h, .teach-h { font-size: 26px !important; }
 
-    /* Hide "Nueva simulación" label, keep icon */
     .top-actions .btn-primary { padding: 8px 10px; }
     .top-actions .btn-primary { font-size: 0; }
     .top-actions .btn-primary svg { font-size: 14px; }
@@ -169,6 +161,5 @@
     .reg-stepper { gap: 4px; }
     .reg-step-label { display: none; }
 
-    /* KPI cards */
     .kpi { padding: 16px; }
   }

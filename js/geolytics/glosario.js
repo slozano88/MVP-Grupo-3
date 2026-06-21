@@ -1,8 +1,3 @@
-// ============================================================
-// PERSONA 3 — Glosario
-// Archivo suelto asignado a P3 por coherencia con navegación educativa.
-// ============================================================
-
 function glossaryHTML() {
   const terms = [
     { t: 'PIB (Producto Interno Bruto)', cat: 'Indicador', d: 'El valor total de los bienes y servicios que produce un país en un período. Es la medida más usada del tamaño de una economía.' },

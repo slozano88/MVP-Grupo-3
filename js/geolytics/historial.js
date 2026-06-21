@@ -1,7 +1,3 @@
-// ============================================================
-// PERSONA 3 — Historial
-// ============================================================
-
 function historyHTML() {
   const q = (state.histSearch || '').trim().toLowerCase();
   const list = state.history.filter(h =>

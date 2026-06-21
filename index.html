@@ -6,28 +6,18 @@
 <title>Geolytics</title>
 <script>
   // Punto de entrada.
-  //  • Visita normal  → redirige YA a la app.
-  //  • Vuelta de Google/OAuth (#access_token o ?code) → carga Supabase de forma
-  //    dinámica, espera a que guarde la sesión y recién entra a la app.
-  //
-  //  Mobile: varios navegadores móviles / webviews in-app (WhatsApp, Instagram,
-  // Safari iOS) IGNORAN un location.replace() emitido mientras todavía se parsea
-  // el <head>. Por eso reintentamos la redirección en DOMContentLoaded, load y
-  // por timeout — y además el texto "Iniciando…" es un enlace tocable de respaldo.
+  // Vuelta de Google/OAuth (#access_token o ?code) → carga Supabase de forma dinámica, espera a que guarde la sesión y recién entra a la app
+
   (function () {
     var HOME = 'Geolytics.html';
     var h = location.hash || '', q = location.search || '';
     var isOAuth = h.indexOf('access_token') !== -1 || h.indexOf('error') !== -1 || q.indexOf('code=') !== -1;
 
-    // Navegación robusta. Llamarla varias veces no molesta: en cuanto una funciona,
-    // la página se va. NO la "latcheamos" en el caso normal, así los reintentos
-    // pueden volver a intentar si el primer replace() fue ignorado en mobile.
     function go() {
       try { location.replace(HOME); }
       catch (e) { try { location.href = HOME; } catch (_) {} }
     }
 
-    // Caso normal: redirigir ya + reintentos para mobile.
     if (!isOAuth) {
       go();
       document.addEventListener('DOMContentLoaded', go);
@@ -37,7 +27,6 @@
       return;
     }
 
-    // Caso OAuth: una sola navegación cuando la sesión esté lista.
     var done = false;
     function goOnce() { if (done) return; done = true; go(); }
 
@@ -61,7 +50,7 @@
     lib.onerror = goOnce;
     document.head.appendChild(lib);
 
-    // Respaldo: si algo tarda o falla, entramos igual (la app reintenta leer la sesión).
+    // Respaldo: si algo tarda o falla, entramos igual (la app reintenta leer la sesión)
     setTimeout(goOnce, 3000);
   })();
 </script>

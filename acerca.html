@@ -17,8 +17,6 @@
     "showGrid": true
   }/*EDITMODE-END*/;
 
-  // Anti-parpadeo: aplica el tema y el color de fondo ANTES de cargar el CSS
-  // externo, para que el primer pixel ya sea del color correcto (no blanco).
   (function(){
     var BG = { forest:'#F4F1EA', midnight:'#0E1116' };
     var __stored = null; try { __stored = localStorage.getItem('geolytics-theme'); } catch(e){}
@@ -65,10 +63,9 @@
   </div>
 </div>
 
-<!-- Supabase: cliente CDN. El resto de la app quedó reestructurado por uso común/persona. -->
+<!-- Supabase -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 
-<!-- JS por responsable / pantalla. Se cargan antes del common porque definen los renderizadores. -->
 <script src="js/acceso/login.js?v=20"></script>
 <script src="js/acceso/onboarding.js?v=20"></script>
 <script src="js/acceso/loading.js?v=20"></script>
@@ -88,7 +85,6 @@
 <script src="js/administracion/docentes.js?v=20"></script>
 <script src="js/administracion/aula-institucion.js?v=20"></script>
 
-<!-- Uso común: datos, Supabase, router, eventos, estado global y arranque. Va último. -->
 <script src="js/common/common.js?v=20"></script>
 </body>
 </html>

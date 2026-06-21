@@ -1,6 +1,3 @@
-// ============================================================
-// PERSONA 3 — Detalle de escenario
-// ============================================================
 
 function detailHTML() {
   const sc = getScenario(state.detailScenario);

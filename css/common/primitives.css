@@ -1,7 +1,4 @@
-/* ============================================================
-   shared/primitives.css
-   ============================================================ */
-  /* ===================== COMMON PRIMITIVES ===================== */
+/* primitives.css */
   .btn {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 10px 16px; border-radius: 8px;

@@ -1,9 +1,4 @@
-// ============================================================
-// PERSONA 3 — Geolytics / Inicio
-// ============================================================
-
 function homeHTML() {
-  // hero tickers from last sim
   const last = state.history[0];
   const last_sc = last ? getScenario(last.scenario) : null;
   const sim = last ? simulate(last.scenario, last.intensityPct, DURATIONS[last.durIdx]) : null;

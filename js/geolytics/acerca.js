@@ -1,7 +1,3 @@
-// ============================================================
-// PERSONA 3 — Acerca de
-// Archivo suelto asignado a P3 junto al inicio institucional.
-// ============================================================
 
 function aboutHTML() {
   const steps = [
