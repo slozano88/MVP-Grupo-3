@@ -1,0 +1,21 @@
+/* Layout independiente para las pantallas de acceso */
+.app-standalone {
+  grid-template-columns: 1fr !important;
+}
+
+/* Fondo general de las pantallas de acceso */
+.main-standalone {
+  background: var(--bg);
+}
+
+/* Oculta decoraciones del layout principal */
+.main-standalone::before {
+  display: none;
+}
+
+/* Contenedor interno de login, recuperación, onboarding y loading */
+.standalone-canvas {
+  padding: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
