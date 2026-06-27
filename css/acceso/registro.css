@@ -1,0 +1,342 @@
+/* Progreso del formulario de registro */
+.reg-stepper {
+  display: flex;
+  align-items: center;
+  margin: 4px 0 22px;
+}
+
+.reg-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reg-step-circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 12px;
+  display: grid;
+  place-items: center;
+  transition: all .2s;
+}
+
+.reg-step-circle svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* Estado activo y completado de cada paso */
+.reg-step.active .reg-step-circle {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--brand-ink);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--brand) 14%, transparent);
+}
+
+.reg-step.done .reg-step-circle {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--brand-ink);
+}
+
+.reg-step-label {
+  font-size: 11.5px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.reg-step.active .reg-step-label,
+.reg-step.done .reg-step-label {
+  color: var(--ink);
+}
+
+.reg-step-line {
+  flex: 1;
+  height: 1.5px;
+  background: var(--line);
+  margin: 0 10px;
+  min-width: 18px;
+}
+
+.reg-step-line.done {
+  background: var(--brand);
+}
+
+/* Distribución de campos del formulario de registro */
+.reg-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.reg-oauth-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+/* Indicador visual de fortalezar de contraseña */
+.pw-meter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.pw-meter-track {
+  display: flex;
+  gap: 3px;
+  flex: 1;
+}
+
+.pw-meter-seg {
+  flex: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--surface-2);
+  transition: background .15s;
+}
+
+.pw-meter-label {
+  font-size: 10.5px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  min-width: 70px;
+  text-align: right;
+  font-weight: 700;
+}
+
+/* Aceptación de términos y opciones del registro */
+.reg-terms {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 14px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  cursor: pointer;
+  color: var(--ink-2);
+}
+
+.reg-terms .auth-checkbox {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Títulos de secciones del registro */
+.reg-section-l {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+  margin-top: 4px;
+}
+
+/* Selección de rol del usuario */
+.reg-roles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.reg-role {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 10px;
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  text-align: left;
+  transition: all .15s;
+}
+
+.reg-role:hover {
+  border-color: var(--line-strong);
+}
+
+.reg-role.on {
+  border-color: var(--brand);
+  background: color-mix(in oklab, var(--brand) 6%, var(--surface));
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand) 14%, transparent);
+}
+
+.reg-role-glyph {
+  font-size: 24px;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: var(--surface-2);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.reg-role-name {
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.reg-role-sub {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+/* Rol seleccionado */
+.reg-role-check {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--brand);
+  color: var(--brand-ink);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: scale(.7);
+  transition: all .15s;
+}
+
+.reg-role-check svg {
+  width: 10px;
+  height: 10px;
+}
+
+.reg-role.on .reg-role-check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Selección de intereses económicos */
+.reg-interests {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.reg-interest {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--surface);
+  border: 1.5px solid var(--line);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  transition: all .15s;
+}
+
+.reg-interest:hover {
+  border-color: var(--line-strong);
+}
+
+.reg-interest.on {
+  border-color: var(--brand);
+  background: color-mix(in oklab, var(--brand) 6%, var(--surface));
+}
+
+.reg-interest-glyph {
+  font-size: 18px;
+}
+
+.reg-interest-tick {
+  margin-left: auto;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--brand);
+  color: var(--brand-ink);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: scale(.7);
+  transition: all .15s;
+}
+
+.reg-interest-tick svg {
+  width: 10px;
+  height: 10px;
+}
+
+.reg-interest.on .reg-interest-tick {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Acciones inferiores del formulario */
+.reg-progress-info {
+  margin-top: 14px;
+  text-align: center;
+}
+
+.reg-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.reg-actions .btn {
+  flex: 1;
+  justify-content: center;
+  padding: 11px;
+}
+
+/* Estado final de registro exitoso */
+.reg-success {
+  padding: 12px 0 8px;
+}
+
+.reg-success-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--pos) 14%, var(--surface));
+  color: var(--pos);
+  border: 2px solid color-mix(in oklab, var(--pos) 40%, transparent);
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+  animation: regPop 0.5s cubic-bezier(.34,1.56,.64,1) both;
+}
+
+/* Animación del ícono de confirmación */
+@keyframes regPop {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Adaptación del registro para pantallas chicas */
+@media (max-width: 860px) {
+  .auth-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-brand {
+    display: none;
+  }
+}
