@@ -1,3 +1,7 @@
+// ============================================================
+// PERSONA 2 — Escenarios
+// ============================================================
+
 function scenariosHTML() {
   const selected = getScenario(state.selectedScenario);
   return `
