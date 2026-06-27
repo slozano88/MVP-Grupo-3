@@ -1,6 +1,3 @@
-// ============================================================
-// ============================================================
-
 function compareHTML() {
   // Con menos de 2 simulaciones no hay nada que comparar → estado vacío
   // (antes crasheaba al intentar leer escenarios inexistentes).
