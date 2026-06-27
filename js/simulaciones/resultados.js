@@ -1,7 +1,3 @@
-// ============================================================
-// MODULO SIMULACIONES - Resultados, graficos y explicacion
-// ============================================================
-
 function resultsHTML() {
   const sc = getScenario(state.selectedScenario);
   const months = DURATIONS[durIdx(state.duration)];
