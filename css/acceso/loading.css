@@ -1,0 +1,152 @@
+/* Pantalla principal de carga */
+.screen.loading-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+/* Contenedor central del contenido de loading */
+.loading-wrap {
+  max-width: 460px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Título y descripción del proceso */
+.loading-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-top: 10px;
+}
+
+.loading-sub {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+.loading-sub strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* Barra de progreso */
+.loading-progress {
+  height: 4px;
+  background: var(--surface-2);
+  border-radius: 2px;
+  margin: 28px auto 10px;
+  overflow: hidden;
+  max-width: 320px;
+}
+
+.loading-progress-fill {
+  height: 100%;
+  width: 30%;
+  background: var(--brand);
+  border-radius: 2px;
+  animation: loadingBar 2.4s ease-in-out forwards;
+}
+
+/* Animación de avance de la barra */
+@keyframes loadingBar {
+  0% {
+    width: 6%;
+  }
+
+  40% {
+    width: 55%;
+  }
+
+  75% {
+    width: 82%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+/* Registro visual de pasos del procesamiento */
+.loading-log {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px 16px;
+  text-align: left;
+  margin-top: 20px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* Aparición progresiva de cada mensaje del proceso */
+.loading-log-line {
+  opacity: 0;
+  animation: logIn 0.4s ease forwards;
+}
+
+.loading-log-line:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.loading-log-line:nth-child(2) {
+  animation-delay: 0.7s;
+}
+
+.loading-log-line:nth-child(3) {
+  animation-delay: 1.3s;
+}
+
+.loading-log-line:nth-child(4) {
+  animation-delay: 1.9s;
+  color: var(--brand);
+}
+
+/* Animación de entrada de los mensajes */
+@keyframes logIn {
+  from {
+    opacity: 0;
+    transform: translateX(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Resumen de parámetros usados en la simulación */
+.loading-params {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.loading-param {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 8px;
+}
+
+.loading-param-l {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.loading-param-v {
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 4px;
+}
