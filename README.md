@@ -7,7 +7,7 @@ Web pura (HTML + CSS + JavaScript, sin frameworks ni build), datos reales de la 
 ## Estructura
 
 ```text
-geolytics-repo/
+geolytics/
 ├── index.html              # punto de entrada (redirige a la app / captura el retorno de Google OAuth)
 ├── *.html                  # pantallas de la app
 ├── styles.css              # hoja de estilos única (tokens + componentes + temas claro/oscuro)
