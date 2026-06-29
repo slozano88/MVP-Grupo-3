@@ -30,7 +30,7 @@ geolytics/
 
 ## Orden de carga
 
-Todos los HTML cargan los scripts en este orden (importa):
+Todos los HTML cargan los scripts en este orden:
 
 ```text
 supabase (CDN) → js/common/supabase-config.js → js/common/supabase-data.js →
